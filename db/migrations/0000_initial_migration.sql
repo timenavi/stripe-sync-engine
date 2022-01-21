@@ -1,1 +1,1 @@
-select 1;
+create schema stripe;
