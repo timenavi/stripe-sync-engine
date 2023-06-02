@@ -13,8 +13,8 @@ const app = Fastify({
 })
 
 // Register your application as a normal plugin.
-// @ts-ignore
-app.register(import('../app'))
+// @ts-expect-error - import thing
+app.register(import('../src/app'))
 
 export default async (req: Request, res: Response) => {
   await app.ready()

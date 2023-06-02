@@ -11,17 +11,12 @@
     "strict": true,
     "lib": ["ES2022", "DOM"],
     "resolveJsonModule": true,
-    "useUnknownInCatchVariables": false,
+    "useUnknownInCatchVariables": false
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "parserOptions":  {
-    "ecmaVersion":  "2022",  // Allows for the parsing of modern ECMAScript features
-    "sourceType":  "module"  // Allows for the use of imports
+  "include": ["./src/**/*", "api"],
+  "exclude": ["node_modules", "dist"],
+  "parserOptions": {
+    "ecmaVersion": "2022", // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module" // Allows for the use of imports
   }
 }
