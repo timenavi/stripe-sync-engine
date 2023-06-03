@@ -1,4 +1,4 @@
-import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify'
+import fastify from 'fastify'
 import autoload from '@fastify/autoload'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
@@ -27,7 +27,11 @@ interface CustomRouteGenericQuery {
   Querystring: IQueryString
 }
 
-export default async function (instance: FastifyInstance, opts: FastifyServerOptions, done) {
+export default async function (
+  instance: FastifyInstance,
+  opts: FastifyServerOptions,
+  done: () => void
+) {
   instance.addContentTypeParser('application/json', { parseAs: 'buffer' }, (req, body, done) => {
     try {
       let newBody
