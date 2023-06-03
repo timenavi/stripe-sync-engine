@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 // Require the framework
-import Fastify from 'fastify'
+import Fastify, { FastifyReply, FastifyRequest } from 'fastify'
 
 // Instantiate Fastify with some config
 const app = Fastify({
@@ -10,11 +10,11 @@ const app = Fastify({
 })
 
 // Register your application as a normal plugin.
-app.register(import('../app'), {
+app.register(import('../functions/index'), {
   prefix: '/',
 })
 
-export default async (req: any, res: any) => {
+export default async (req: FastifyRequest, res: FastifyReply) => {
   await app.ready()
   app.server.emit('request', req, res)
 }
