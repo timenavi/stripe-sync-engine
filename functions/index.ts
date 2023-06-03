@@ -36,7 +36,6 @@ export default async function (
 
   instance.register(autoload, {
     dir: path.join(__dirname, 'routes'),
-    prefix: '/api',
   })
 
   done()

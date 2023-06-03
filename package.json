@@ -23,10 +23,10 @@
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0",
     "pg": "^8.11.0",
-    "pg-node-migrations": "0.0.8",
+    "pg-node-migrations": "^0.0.8",
+    "pino": "^8.14.1",
     "stripe": "^8.222.0",
-    "yesql": "^6.1.0",
-    "pino": "^8.14.1"
+    "yesql": "^6.1.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",

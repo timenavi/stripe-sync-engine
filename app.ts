@@ -11,22 +11,6 @@ interface buildOpts extends FastifyServerOptions {
 
 import { FastifyInstance, FastifyServerOptions } from 'fastify'
 
-interface IQueryString {
-  name: string
-}
-
-interface IParams {
-  name: string
-}
-
-interface CustomRouteGenericParam {
-  Params: IParams
-}
-
-interface CustomRouteGenericQuery {
-  Querystring: IQueryString
-}
-
 export async function createServer(opts: buildOpts = {}): Promise<FastifyInstance> {
   const app = fastify(opts)
 
