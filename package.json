@@ -5,21 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --log-error --files ./src/server.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "NODE_ENV=production node dist/server.js",
     "test": "node -r dotenv/config node_modules/.bin/jest --detectOpenHandles",
     "test:debug": "TERM=dumb node -r dotenv/config node_modules/.bin/jest",
     "eslint:check": "eslint 'src/**'",
     "prettier:check": "prettier -c src/**",
-    "prettier:write": "prettier --write src/**",
-    "prod:deploy": "flyctl -c fly.prod.toml deploy",
-    "prod:logs": "flyctl -c fly.prod.toml logs",
-    "prod:secrets:set": "flyctl -c fly.prod.toml secrets import",
-    "prod:secrets:fetch": "AWS_PROFILE=supabase node internals/getSecrets.js prod",
-    "staging:deploy": "flyctl deploy",
-    "staging:logs": "flyctl logs",
-    "staging:secrets:fetch": "node internals/getSecrets.js staging",
-    "staging:secrets:set": "flyctl secrets import"
+    "prettier:write": "prettier --write src/**"
   },
   "author": "Supabase",
   "license": "MIT",
