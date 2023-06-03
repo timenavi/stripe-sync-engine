@@ -4,12 +4,12 @@
   "description": "Stripe sync engine. Sync your Stripe account to your Postgres database.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --log-error --files ./src/server.ts",
+    "dev": "ts-node-dev --log-error --files ./server.ts",
     "test": "node -r dotenv/config node_modules/.bin/jest --detectOpenHandles",
     "test:debug": "TERM=dumb node -r dotenv/config node_modules/.bin/jest",
-    "eslint:check": "eslint 'src/**'",
-    "prettier:check": "prettier -c src/**",
-    "prettier:write": "prettier --write src/**"
+    "eslint:check": "eslint './**'",
+    "prettier:check": "prettier -c ./**",
+    "prettier:write": "prettier --write ./**"
   },
   "author": "Supabase",
   "license": "MIT",

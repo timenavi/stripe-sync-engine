@@ -1,7 +1,7 @@
 'use strict'
 import { FastifyInstance } from 'fastify'
 import { createHmac } from 'crypto'
-import { createServer } from '../src/app'
+import { createServer } from '../app'
 import stripeMock from './helpers/stripe'
 import 'dotenv/config'
 

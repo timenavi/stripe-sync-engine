@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { Server, IncomingMessage, ServerResponse } from 'http'
 import { runMigrations } from './utils/migrate'
-import { createServer } from './app'
+import { createServer } from './utils/app'
 import pino from 'pino'
 
 const logger = pino({

@@ -5,7 +5,6 @@
     "esModuleInterop": true,
     "preserveConstEnums": true,
     "removeComments": true,
-    "rootDir": "src",
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
@@ -13,7 +12,7 @@
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": false
   },
-  "include": ["./src/**/*", "src/api"],
+  "include": ["./**/*", "api", "functions", "lib", "routes", "utils", "server.ts"],
   "exclude": ["node_modules", "dist"],
   "parserOptions": {
     "ecmaVersion": "2022", // Allows for the parsing of modern ECMAScript features

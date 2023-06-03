@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   testPathIgnorePatterns: ['node_modules', 'dist'],
   moduleNameMapper: {
-    '^@/(.*)': '<rootDir>/src/$1',
+    '^@/(.*)': '<rootDir>/$1',
   },
   verbose: true,
 }

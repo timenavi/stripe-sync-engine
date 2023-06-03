@@ -23,12 +23,12 @@
       }
     },
     {
-      "file": "src/schemas/customer.ts",
+      "file": "schemas/customer.ts",
       "description": "Then we create a customer schema. This matches the table that we created, except it uses JSON Schema https://json-schema.org/",
       "line": 31
     },
     {
-      "file": "src/lib/customers.ts",
+      "file": "lib/customers.ts",
       "description": "After that, we create a file for managing the customers. It has a few key functions:\n- upsertCustomer \n- verifyCustomerExists\n- fetchAndInsertPrice",
       "line": 36,
       "selection": {
