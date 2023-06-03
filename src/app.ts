@@ -9,6 +9,58 @@ interface buildOpts extends FastifyServerOptions {
   exposeDocs?: boolean
 }
 
+import { FastifyInstance, FastifyReply, FastifyRequest, FastifyServerOptions } from 'fastify'
+
+interface IQueryString {
+  name: string
+}
+
+interface IParams {
+  name: string
+}
+
+interface CustomRouteGenericParam {
+  Params: IParams
+}
+
+interface CustomRouteGenericQuery {
+  Querystring: IQueryString
+}
+
+export default async function (instance: FastifyInstance, opts: FastifyServerOptions, done) {
+  instance.addContentTypeParser('application/json', { parseAs: 'buffer' }, (req, body, done) => {
+    try {
+      let newBody
+      switch (req.routerPath) {
+        case '/webhooks':
+          newBody = { raw: body }
+          break
+        default:
+          newBody = JSON.parse(body.toString())
+          break
+      }
+      done(null, newBody)
+    } catch (error) {
+      error.statusCode = 400
+      done(error, undefined)
+    }
+  })
+
+  instance.addSchema(errorSchema)
+
+  instance.get('/', async (req: FastifyRequest, res: FastifyReply) => {
+    res.status(200).send({
+      hello: 'World',
+    })
+  })
+
+  instance.register(autoload, {
+    dir: path.join(__dirname, 'routes'),
+  })
+
+  done()
+}
+
 export async function createServer(opts: buildOpts = {}): Promise<FastifyInstance> {
   const app = fastify(opts)
 

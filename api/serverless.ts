@@ -1,39 +1,20 @@
-'use strict'
-
-// Read the .env file.
 import * as dotenv from 'dotenv'
 dotenv.config()
 
 // Require the framework
-import Fastify, { FastifyInstance } from 'fastify'
-import { Server, IncomingMessage, ServerResponse } from 'http'
-import { createServer } from '../src/app'
-import pino from 'pino'
+import Fastify from 'fastify'
 
 // Instantiate Fastify with some config
 const app = Fastify({
-  logger: true,
+  logger: false,
 })
 
-const logger = pino({
-  formatters: {
-    level(label) {
-      return { level: label }
-    },
-  },
-  timestamp: pino.stdTimeFunctions.isoTime,
+// Register your application as a normal plugin.
+app.register(import('../src/app'), {
+  prefix: '/',
 })
 
-export default async (req: Request, res: Response) => {
-  const customApp: FastifyInstance<Server, IncomingMessage, ServerResponse> = await createServer({
-    logger,
-    exposeDocs: process.env.NODE_ENV !== 'production',
-    requestIdHeader: 'Request-Id',
-  })
-
-  // Register your application as a normal plugin.
-  // @ts-expect-error - import thing
-  app.register(customApp)
+export default async (req: any, res: any) => {
   await app.ready()
   app.server.emit('request', req, res)
 }
