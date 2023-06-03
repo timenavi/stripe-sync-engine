@@ -35,7 +35,7 @@ export default async function (
   instance.addSchema(errorSchema)
 
   instance.register(autoload, {
-    dir: path.join(__dirname, 'routes'),
+    dir: path.join(__dirname, '../routes'),
   })
 
   done()
